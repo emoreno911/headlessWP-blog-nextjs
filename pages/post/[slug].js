@@ -8,7 +8,17 @@ import {
 } from '../../components/utilities'
 import styles from '../../styles/Post.module.css'
 
-export const getServerSideProps = async ({params}) => {
+export const getStaticPaths = async () => {
+  const posts = await (await fetch(POSTS_ENDPOINT)).json()
+  const paths = posts.map(({ slug }) => ({ params: { slug } }))
+
+  return {
+    paths, 						// Statically generate all paths
+    fallback: false, 	// Display 404 for everything else
+  }
+}
+
+export const getStaticProps = async ({params}) => {
   const tags = await (await fetch(TAGS_ENDPOINT)).json()
   const categories = await (await fetch(CATEGORIES_ENDPOINT)).json()
 	const posts = await (await fetch(POSTS_ENDPOINT)).json()
@@ -39,7 +49,7 @@ export const getServerSideProps = async ({params}) => {
           {
             post.categories.map(cid => {
               const category = categories.find(c => c.id === cid)
-              return <a href={`/category/${category.slug}`}>{category.name}</a>
+              return <a key={cid} href={`/category/${category.slug}`}>{category.name}</a>
             })
           }
         </div>
@@ -48,7 +58,7 @@ export const getServerSideProps = async ({params}) => {
           {
             post.tags.map(tid => {
               const tag = tags.find(t => t.id === tid)
-              return <a href={`/tag/${tag.slug}`}>{tag.name}</a>
+              return <a key={tid} href={`/tag/${tag.slug}`}>{tag.name}</a>
             })
           }
         </div>

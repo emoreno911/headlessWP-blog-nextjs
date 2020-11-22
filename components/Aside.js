@@ -11,8 +11,8 @@ import styles from '../styles/Category.module.css'
 				<h4>Recent Posts</h4>
 				{
 					recent.map(post => (
-						<a href={`/post/${post.slug}`}>
-							<div key={post.id} dangerouslySetInnerHTML={{__html: post.title.rendered }}></div>
+						<a key={post.id} href={`/post/${post.slug}`}>
+							<div dangerouslySetInnerHTML={{__html: post.title.rendered }}></div>
 						</a>
 					))
 				}

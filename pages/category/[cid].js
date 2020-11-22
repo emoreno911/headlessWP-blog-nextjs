@@ -2,14 +2,24 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import Aside from '../../components/Aside'
+import PostCard from '../../components/PostCard'
 import {
-  fixExcerpt,
   CATEGORIES_ENDPOINT,
   POSTS_ENDPOINT
 } from '../../components/utilities'
 import styles from '../../styles/Home.module.css'
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticPaths = async () => {
+  const categories = await (await fetch(CATEGORIES_ENDPOINT)).json()
+  const paths = categories.map(({ slug }) => ({ params: { cid: slug } }))
+
+  return {
+    paths, 						// Statically generate all paths
+    fallback: false, 	// Display 404 for everything else
+  }
+}
+
+export const getStaticProps = async ({ params }) => {
   const categories = await (await fetch(CATEGORIES_ENDPOINT)).json()
   const allPosts = await (await fetch(POSTS_ENDPOINT)).json()
   const category = categories.find(c => c.slug === params.cid)
@@ -31,15 +41,7 @@ const Category = ({ posts = [], categories = [], category = {} }) => {
       <section>
         <h5>Category: {category.name}</h5>
         {
-          posts.map(post => (
-            <article key={post.id} data-slug={post.slug}>
-              <h3>
-                <div dangerouslySetInnerHTML={{__html: post.title.rendered }}></div>
-              </h3>
-              <small>{post.date}</small>
-              <div dangerouslySetInnerHTML={{__html: fixExcerpt(post.excerpt.rendered) }}></div>
-            </article>
-          ))
+          posts.map(post => (<PostCard key={post.id} post={post} />))
         }
       </section>
       <Aside 

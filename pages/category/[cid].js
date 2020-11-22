@@ -3,9 +3,9 @@ import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import Aside from '../../components/Aside'
 import {
+  fixExcerpt,
   CATEGORIES_ENDPOINT,
-  POSTS_ENDPOINT,
-  TAGS_ENDPOINT
+  POSTS_ENDPOINT
 } from '../../components/utilities'
 import styles from '../../styles/Home.module.css'
 
@@ -25,9 +25,6 @@ export const getServerSideProps = async ({ params }) => {
 }
 
 const Category = ({ posts = [], categories = [], category = {} }) => {
-  const fixExcerpt = (str) => {
-    return str.replace('http://waybackblog.byethost32.com', 'http://localhost:3000/post')
-  }
   return (
     <Layout>
       <Header />

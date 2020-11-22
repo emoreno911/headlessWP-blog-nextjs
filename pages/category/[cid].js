@@ -2,11 +2,16 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
 import Aside from '../../components/Aside'
+import {
+  CATEGORIES_ENDPOINT,
+  POSTS_ENDPOINT,
+  TAGS_ENDPOINT
+} from '../../components/utilities'
 import styles from '../../styles/Home.module.css'
 
 export const getServerSideProps = async ({ params }) => {
-  const categories = await (await fetch('https://run.mocky.io/v3/710e69ce-6b48-4f4e-acf4-af55c0effe8f')).json()
-  const allPosts = await (await fetch('https://run.mocky.io/v3/6c8b536d-6b39-4b48-b28d-33422f3f2b3d')).json()
+  const categories = await (await fetch(CATEGORIES_ENDPOINT)).json()
+  const allPosts = await (await fetch(POSTS_ENDPOINT)).json()
   const category = categories.find(c => c.slug === params.cid)
   const posts = allPosts.filter(p => p.categories.indexOf(category.id) !== -1)
 

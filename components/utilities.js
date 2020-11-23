@@ -1,4 +1,4 @@
-export const POSTS_ENDPOINT = "https://run.mocky.io/v3/90b5369a-4391-4ef1-945d-a05953478961"
+export const POSTS_ENDPOINT = "https://run.mocky.io/v3/2c9903d4-ab6c-431c-b486-25c3deb9389c"
 export const CATEGORIES_ENDPOINT = "https://run.mocky.io/v3/d35dcc90-865a-40d9-bd84-b3365b050f53"
 export const TAGS_ENDPOINT = "https://run.mocky.io/v3/972f398f-e941-4109-b214-11b82a3b1328"
 

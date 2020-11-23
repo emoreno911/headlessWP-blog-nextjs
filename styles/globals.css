@@ -9,6 +9,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  color: cornflowerblue;
+  display: inline-block;
+  height: 48px;
 }
 
 * {

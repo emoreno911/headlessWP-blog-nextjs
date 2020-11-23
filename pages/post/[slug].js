@@ -56,7 +56,9 @@ const Post = ({
         <h3>
           <div dangerouslySetInnerHTML={{__html: post.title.rendered }}></div>
         </h3>
-        <small>{post.date}</small>
+        <div>
+          <small>{post.date}</small>
+        </div>
         <div dangerouslySetInnerHTML={{__html: post.content.rendered }}></div>
         <div>
           <h5>Categories</h5>

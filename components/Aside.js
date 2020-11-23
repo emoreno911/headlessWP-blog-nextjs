@@ -11,9 +11,11 @@ import styles from '../styles/Category.module.css'
 				<h4>Recent Posts</h4>
 				{
 					recent.map(post => (
-						<a key={post.id} href={`/post/${post.slug}`}>
-							<div dangerouslySetInnerHTML={{__html: post.title.rendered }}></div>
-						</a>
+						<div>
+							<a key={post.id} href={`/post/${post.slug}`}>
+								<div dangerouslySetInnerHTML={{__html: post.title.rendered }}></div>
+							</a>
+						</div>
 					))
 				}
 			</div>
@@ -21,9 +23,9 @@ import styles from '../styles/Category.module.css'
 				<h4>Categories</h4>
 				{
 					categories.map(cat => (
-						<p key={cat.id}>
+						<div key={cat.id}>
 							<a href={`/category/${cat.slug}`}>{cat.name}</a>
-						</p>
+						</div>
 					))
 				}
 			</div>

@@ -58,7 +58,7 @@ export const getStaticProps = async ({params}) => {
           {
             post.tags.map(tid => {
               const tag = tags.find(t => t.id === tid)
-              return <a key={tid} href={`/tag/${tag.slug}`}>{tag.name}</a>
+              return tag ? <a key={tid} href={`/tag/${tag.slug}`}>{tag.name}</a> : null
             })
           }
         </div>

@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
-import Aside from '../../components/Aside'
+import Aside from '../../components/aside'
 import {
   CATEGORIES_ENDPOINT,
   POSTS_ENDPOINT,

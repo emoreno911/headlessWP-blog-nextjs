@@ -1,14 +1,14 @@
 import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
-import Aside from '../components/Aside'
-import PostCard from '../components/PostCard'
+import Footer from '../components/Footer'
+import Aside from '../components/aside'
+import Main from '../components/Main'
 import {
   CATEGORIES_ENDPOINT,
   POSTS_ENDPOINT,
   TAGS_ENDPOINT
 } from '../components/utilities'
-import styles from '../styles/Home.module.css'
 
 export const getStaticProps = async () => {
   const tags = await (await fetch(TAGS_ENDPOINT)).json()
@@ -37,15 +37,18 @@ const Home = ({ posts = [], categories = [] }) => {
   return (
     <Layout metadata={metadata}>
       <Header />
-      <section>
-        {
-          posts.map(post => (<PostCard key={post.id} post={post} />))
-        }
-      </section>
-      <Aside 
-        posts={posts}
-        categories={categories}
-      />
+      <main className="max-w-5xl mx-auto pb-10 pt-10">
+			  <div className="flex flex-wrap overflow-hidden">
+          <Main
+            posts={posts}
+          />
+          <Aside 
+            posts={posts}
+            categories={categories}
+          />
+        </div>
+      </main>
+      <Footer />
     </Layout>
   )
 }

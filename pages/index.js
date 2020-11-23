@@ -26,8 +26,16 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ posts = [], categories = [] }) => {
+  const metadata = {
+    title: "Wayback Blog",
+    description: "Wayback Blog, News from 20 years ago",
+    image: "http://waybackblog.byethost32.com/wp-content/uploads/2020/11/onlineprinters-oIpJ8koLx_s-unsplash.jpg",
+    url: `https://headless-wp-blog-nextjs.vercel.app/`,
+    sitename: "Wayback Blog",
+  }
+
   return (
-    <Layout>
+    <Layout metadata={metadata}>
       <Header />
       <section>
         {

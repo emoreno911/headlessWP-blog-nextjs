@@ -11,7 +11,7 @@ import styles from '../styles/Home.module.css'
 				<small>{post.date}</small>
 			</div>
 			<div dangerouslySetInnerHTML={{__html: fixExcerpt(post.excerpt.rendered) }}></div>
-			<p>Continue reading this article <a href={`/post/${post.slug}`}>here</a></p>
+			{/* <p>Continue reading this article <a href={`/post/${post.slug}`}>here</a></p> */}
 		</article>
   )
 }

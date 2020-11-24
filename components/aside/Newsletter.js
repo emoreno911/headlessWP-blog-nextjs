@@ -9,11 +9,11 @@ const Newsletter = () => {
 				<span className="block text-center article-body text-xs italic">Get the news right in your inbox!</span>
 				<form action="">
 						<div className="bg-white border border-gray-400 mt-5 rounded-sm overflow-hidden">
-								<label className="hidden" htmlFor="fn">First Name</label>
+								<label className="sr-only" htmlFor="fn">First Name</label>
 								<input className="bg-transparent w-full p-3" type="text" name="name" id="fn" placeholder="First Name" />
 						</div>
 						<div className="bg-white border border-gray-400 mt-3 rounded-sm overflow-hidden">
-								<label className="hidden" htmlFor="em">Email Address</label>
+								<label className="sr-only" htmlFor="em">Email Address</label>
 								<input className="bg-transparent w-full p-3" type="email" name="email" id="em" placeholder="Email Address" />
 						</div>
 						<div className="mt-3 article-body text-xs italic">

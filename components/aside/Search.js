@@ -4,7 +4,7 @@ const Search = () => {
 			<h4 className="font-light text-xl mb-5 text-center">Search the blog</h4>
 			<div className="relative border rounded-sm overflow-hidden">
 				<form action="">
-					<label className="hidden" htmlFor="ss">Search</label>
+					<label className="sr-only" htmlFor="ss">Search</label>
 					<input className="w-full relative p-5 font-light text-gray-900 border-0" type="text" name="s" id="ss" placeholder="Search..." />
 					<button type="submit" aria-label="search button" className="bg-transparent border-0 absolute right-0 px-5 py-5 top-2">
 						<span className="block w-5">

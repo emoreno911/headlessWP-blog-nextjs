@@ -20,7 +20,7 @@ const Newsletter = () => {
 								</span>
 								<label htmlFor="privacy-check">By checking this you agree to our <a href="" className="text-orange-500">Privacy Policy</a>.</label>
 						</div>
-						<button type="submit" className="w-full rounded-sm bg-gray-900 text-white tracking-widest text-sm uppercase font-medium py-3 mt-5">Subscribe</button>
+						<button type="submit" className="w-full rounded-sm bg-indigo-600 text-white tracking-widest text-sm uppercase font-medium py-3 mt-5">Subscribe</button>
 				</form>
 			</div>
 		</div>

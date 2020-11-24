@@ -35,7 +35,7 @@
 }
 
 .readmore {
-	@apply inline-block pt-5 text-sm font-medium tracking-wider;
+	@apply inline-block pt-5 text-sm font-medium tracking-wider text-indigo-600;
 }
 
 @tailwind utilities;

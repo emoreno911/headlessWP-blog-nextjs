@@ -1,15 +1,15 @@
 const Header = () => {
 	return (
+		<>
 		<header className="max-w-5xl mx-auto pt-5">
 			<div className="flex flex-wrap -mx-2 overflow-hidden px-5 lg:px-2 my-2">
 
 				<div className="px-2 w-full overflow-hidden md:w-1/6 lg:w-1/3 xl:w-1/3 text-center md:text-left">
 						<h1 className="font-bold text-2xl font-serif">Wayback Blog</h1>
-						<small>News from 20 years ago</small>
 				</div>
 
-				<nav className="my-2 px-2 w-full overflow-hidden md:w-3/6 lg:w-1/3 xl:w-1/3 text-center md:text-left">
-						<ul>
+				<nav className="my-2 px-2 w-full overflow-hidden md:w-3/6 lg:w-1/3 xl:w-1/3 md:text-left">
+						<ul className="text-center">
 								<li className="inline-block"><a className="block font-semibold px-3" href="/">Home</a></li>
 								<li className="inline-block"><a className="block font-semibold px-3" href="/about">About</a></li>
 								<li className="inline-block"><a className="block font-semibold px-3" href="#">Contact</a></li>
@@ -30,6 +30,15 @@ const Header = () => {
 				
 			</div>
     </header>
+		<div className="bg-gray-100">
+			<div className="text-center max-w-5xl mx-auto py-12">
+				<h2 className="text-2xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl font-serif">
+					<span className="xl:inline">News from 20 </span>
+					<span className="text-indigo-600 xl:inline">years ago</span>
+				</h2>
+			</div>
+		</div>
+		</>
 	)
 }
 

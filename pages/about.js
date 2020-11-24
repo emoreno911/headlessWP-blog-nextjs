@@ -1,19 +1,22 @@
 import Layout from '../components/Layout'
 import Header from '../components/Header'
-import styles from '../styles/Category.module.css'
+import Footer from '../components/Footer'
 
  const About = () => {
   return (
     <Layout>
 			<Header />
-			<section>
-				<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Sagittis aliquam malesuada bibendum arcu vitae. Magna fermentum iaculis eu non. Purus sit amet volutpat consequat. Mattis rhoncus urna neque viverra. 
-				</p>
-				<p>
-				Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Et malesuada fames ac turpis egestas. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis.
-				</p>
-			</section>
+			<main className="max-w-5xl mx-auto pb-10 pt-10 my-10">
+				<h3 className="font-bold text-2xl font-serif mb-4">About</h3>
+		
+				<p className="mb-4">I’m a React developer playing with the WordPress Rest API. </p>
+
+				<p className="mb-4">All the post here are old news taken from the <a className="text-indigo-600" href="https://archive.org/web/">wayback machine</a> just with educational purposes.</p>
+
+				<p className="mb-4">Have fun reading some old old news!</p>
+
+			</main>
+			<Footer />
 		</Layout>
   )
 }

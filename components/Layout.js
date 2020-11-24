@@ -1,7 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 
-function Layout({ children, metadata = null }) {
+function Layout({ 
+	children, 
+	metadata = null,
+	title = "Wayback Blog - News from 20 years ago" 
+}) {
 	return (
 		<div className="root">
 			<Head>
@@ -26,7 +30,7 @@ function Layout({ children, metadata = null }) {
 
 				{/* <link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet" /> */}
 
-				<title>Wayback Blog - News from 20 years ago</title>
+				<title>{title}</title>
 			</Head>
 
 			{ children }

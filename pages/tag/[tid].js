@@ -1,14 +1,14 @@
 import fetch from 'isomorphic-unfetch'
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import Aside from '../../components/aside'
-import PostCard from '../../components/PostCard'
+import Main from '../../components/Main'
 import {
   CATEGORIES_ENDPOINT,
   POSTS_ENDPOINT,
   TAGS_ENDPOINT
 } from '../../components/utilities'
-import styles from '../../styles/Home.module.css'
 
 export const getStaticPaths = async () => {
   const tags = await (await fetch(TAGS_ENDPOINT)).json()
@@ -36,22 +36,36 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-const Category = ({ posts = [], categories = [], tag = {} }) => {
+const Tag = ({ posts = [], categories = [], tag = {} }) => {
+  const metadata = {
+    title: "Wayback Blog",
+    description: `Articles for tag: ${tag.name}`,
+    image: "http://waybackblog.byethost32.com/wp-content/uploads/2020/11/onlineprinters-oIpJ8koLx_s-unsplash.jpg",
+    url: `https://headless-wp-blog-nextjs.vercel.app/`,
+    sitename: "Wayback Blog",
+  }
+
   return (
-    <Layout>
+    <Layout 
+      metadata={metadata}
+      title={`Wayback Blog - Tag: ${tag.name}`}
+    >
       <Header />
-      <section>
-        <h5>Tag: {tag.name}</h5>
-        {
-          posts.map(post => (<PostCard key={post.id} post={post} />))
-        }
-      </section>
-      <Aside 
-        posts={posts}
-        categories={categories}
-      />
+      <main className="max-w-5xl mx-auto pb-10 pt-10">
+        <h3 className="font-bold text-2xl font-serif mb-4">Tag: {tag.name}</h3>
+			  <div className="flex flex-wrap overflow-hidden">
+          <Main
+            posts={posts}
+          />
+          <Aside 
+            posts={posts}
+            categories={categories}
+          />
+        </div>
+      </main>
+      <Footer />
     </Layout>
   )
 }
 
-export default Category
+export default Tag

@@ -1,12 +1,13 @@
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import Aside from '../../components/aside'
+import PostDetail from '../../components/PostDetail'
 import {
   CATEGORIES_ENDPOINT,
   POSTS_ENDPOINT,
   TAGS_ENDPOINT
 } from '../../components/utilities'
-import styles from '../../styles/Post.module.css'
 
 export const getStaticPaths = async () => {
   const posts = await (await fetch(POSTS_ENDPOINT)).json()
@@ -50,39 +51,25 @@ const Post = ({
   };
 
   return (
-    <Layout metadata={metadata}>
+    <Layout 
+      metadata={metadata}
+      title={`Wayback Blog - ${post.title.rendered}`}
+    >
       <Header />
-			<section>
-        <h3>
-          <div dangerouslySetInnerHTML={{__html: post.title.rendered }}></div>
-        </h3>
-        <div>
-          <small>{post.date}</small>
+      <main className="max-w-5xl mx-auto pb-10 pt-10">
+			  <div className="flex flex-wrap overflow-hidden">
+          <PostDetail
+            post={post}
+            categories={categories}
+            tags={tags}
+          />
+          <Aside 
+            posts={posts}
+            categories={categories}
+          />
         </div>
-        <div dangerouslySetInnerHTML={{__html: post.content.rendered }}></div>
-        <div>
-          <h5>Categories</h5>
-          {
-            post.categories.map(cid => {
-              const category = categories.find(c => c.id === cid)
-              return <a key={cid} href={`/category/${category.slug}`}>{category.name}</a>
-            })
-          }
-        </div>
-        <div>
-          <h5>Tags</h5>
-          {
-            post.tags.map(tid => {
-              const tag = tags.find(t => t.id === tid)
-              return tag ? <a key={tid} href={`/tag/${tag.slug}`}>{tag.name}</a> : null
-            })
-          }
-        </div>
-      </section>
-      <Aside 
-        posts={posts}
-        categories={categories}
-      />
+      </main>
+      <Footer />
     </Layout>
   )
 }

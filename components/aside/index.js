@@ -18,16 +18,14 @@ const Aside = ({
 					<ul>
 					{
 						categories.map(cat => (
-							<div key={cat.id}>
-								<li className="flex">
-									<a href={`/category/${cat.slug}`} className="text-gray-900 font-thin font-serif text-lg py-2 block flex-1">
-										{cat.name}
-									</a>
-									<span className="text-gray-700 text-lg font-thin p-2">
-										{cat.count}
-									</span>
-								</li>
-							</div>
+							<li key={cat.id} className="flex">
+								<a href={`/category/${cat.slug}`} className="text-gray-900 font-thin font-serif text-lg py-2 block flex-1">
+									{cat.name}
+								</a>
+								<span className="text-gray-700 text-lg font-thin p-2">
+									{cat.count}
+								</span>
+							</li>
 						))
 					}
 					</ul>

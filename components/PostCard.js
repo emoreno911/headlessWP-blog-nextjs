@@ -9,7 +9,7 @@ const PostCard = ({ post, index }) => {
 				</h3>
 				<div className="article-body" dangerouslySetInnerHTML={{__html: post.excerpt.rendered }}></div>
 				{/* <a href={`/post/${post.slug}`} className="readmore">Read More...</a> */}
-				<p>Read more <a className="readmore" href={`/post/${post.slug}`}>here</a></p>
+				<p>Continue reading this <a className="readmore" href={`/post/${post.slug}`}>article</a></p>
 			</div>
 		</article>
   )

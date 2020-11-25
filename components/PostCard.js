@@ -6,8 +6,15 @@ const PostCard = ({ post, index }) => {
 	const images = getPostSSLImages()
   return (
 		<article className={myclass}>
-			<div>
-				<img className="article-image" src={`${images[post.id]}.md.jpg`} alt="" /> 
+			<div className="relative">
+				{/* <img className="article-image" src={`${images[post.id]}.md.jpg`} alt="" /> */}
+				<div className="article-image">
+					<Image 
+						src={`${images[post.id]}.md.jpg`}
+						alt={post.title.rendered}
+						layout="fill"
+					/>
+				</div> 
 				<h3 className="article-title">
 					<a href={`/post/${post.slug}`} dangerouslySetInnerHTML={{__html: post.title.rendered }}></a>
 				</h3>

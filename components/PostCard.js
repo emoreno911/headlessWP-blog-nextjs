@@ -1,14 +1,17 @@
+import Image from 'next/image'
+import { getPostSSLImages } from '../components/utilities'
+
 const PostCard = ({ post, index }) => {
 	const myclass = index%2 ? "article-card-left" : 'article-card-right'
+	const images = getPostSSLImages()
   return (
 		<article className={myclass}>
 			<div>
-				{/* <img className="article-image" src="./images/2-340x220.jpg" alt="" /> */}
+				<img className="article-image" src={`${images[post.id]}.md.jpg`} alt="" /> 
 				<h3 className="article-title">
 					<a href={`/post/${post.slug}`} dangerouslySetInnerHTML={{__html: post.title.rendered }}></a>
 				</h3>
 				<div className="article-body" dangerouslySetInnerHTML={{__html: post.excerpt.rendered }}></div>
-				{/* <a href={`/post/${post.slug}`} className="readmore">Read More...</a> */}
 				<p>Continue reading this <a className="readmore" href={`/post/${post.slug}`}>article</a></p>
 			</div>
 		</article>

@@ -32,10 +32,11 @@ const Header = () => {
 				
 			</div>
     </header>
-		<div className="bg-gray-100">
-			<div className="text-center max-w-5xl mx-auto py-12">
-				<h2 className="text-2xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl font-serif">
-					<span className="xl:inline">News from 20 </span>
+		<div className="relative bg-gray-100">
+			<div className="header-background"></div>
+			<div className="relative text-center max-w-5xl mx-auto py-12">
+				<h2 className="header-title">
+					<span className="text-white xl:inline">News from 20 </span>
 					<span className="text-indigo-600 xl:inline">years ago</span>
 				</h2>
 			</div>

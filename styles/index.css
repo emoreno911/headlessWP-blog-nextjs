@@ -6,11 +6,11 @@
 }
 
 .article-card-left {
-	@apply w-1/2 overflow-hidden pl-2;
+	@apply w-1/2 overflow-hidden pl-2 mb-10;
 }
 
 .article-card-right {
-	@apply w-1/2 overflow-hidden pr-2;
+	@apply w-1/2 overflow-hidden pr-2 mb-10;
 }
 
 @screen md {
@@ -36,6 +36,32 @@
 
 .readmore {
 	@apply inline-block pt-5 text-sm font-medium tracking-wider text-indigo-600 leading-8;
+}
+
+.header-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('/img/timeless.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.8;
+}
+
+.header-title {
+	text-shadow: 2px 2px 5px #222;
+	@apply text-2xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl font-serif;
+}
+
+blockquote {
+	@apply max-w-xs sm:max-w-sm mt-8 mx-auto bg-gray-100 shadow p-8 border-l-4 border-indigo-700
+}
+
+blockquote p {
+	@apply italic font-bold text-center text-gray-700 leading-normal
 }
 
 @tailwind utilities;

@@ -6,3 +6,20 @@ export const fixExcerpt = (str) => {
 	const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
 	return str.replace('http://waybackblog.byethost32.com', `${baseURL}/post`)
 }
+
+export const getPostSSLImages = () => {
+	return {
+		63 : "https://iili.io/FVWwiv",
+		60 : "https://iili.io/FVWjWJ",
+		58 : "https://iili.io/FVWhxa",
+		56 : "https://iili.io/FVWWDg",
+		54 : "https://iili.io/FVWelp",
+		52 : "https://iili.io/FVWOfR",
+		47 : "https://iili.io/FVW8JI",
+		49 : "https://iili.io/FVWkUN",
+		17 : "https://iili.io/FVWSRt",
+		13 : "https://iili.io/FVWUOX",
+		9 : "https://iili.io/FVWgbn",
+		5 : "https://iili.io/FVW4xs"
+	}
+}

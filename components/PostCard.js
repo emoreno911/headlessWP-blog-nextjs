@@ -12,7 +12,9 @@ const PostCard = ({ post, index }) => {
 					<Image 
 						src={`${images[post.id]}.md.jpg`}
 						alt={post.title.rendered}
-						layout="fill"
+						width={640}
+						height={427}
+						layout="intrinsic"
 					/>
 				</div> 
 				<h3 className="article-title">
